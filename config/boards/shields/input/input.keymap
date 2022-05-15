@@ -40,7 +40,8 @@
                       ╰────────╯ ╰────────╯ 
         */
 
-        COMBO(qwerty, &tog QWT_L, 10 11 12 13, 0 5, 50)
+        COMBO(qwerty, &to 5, 10 11 12 13, 0, 50)
+        COMBO(cmk, &to 0, 10 11 12 13, 5, 50)
     };
 
     keymap {
