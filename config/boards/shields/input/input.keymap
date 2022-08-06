@@ -9,13 +9,13 @@
 #include <dt-bindings/zmk/bt.h>
 
 /* Layers */
-#define CMK_L 0
+#define QWT_L 0
 #define EXT_L 1
 #define SYM_L 2
 #define NUM_L 3
 #define FUN_L 4
 
-/ { 
+/ {
 
     combos {
         compatible = "zmk,combos";
@@ -36,7 +36,7 @@
           │ 10  11  12  13  14 │ │ 15  16  17  18  19 │
           │ 20  21  22  23  24 │ │ 25  26  27  28  29 │
           ╰───────────╮ 30  31 │ │ 32  33 ╭───────────╯
-                      ╰────────╯ ╰────────╯ 
+                      ╰────────╯ ╰────────╯
         */
 
         //COMBO(qwerty, &to 5, 10 11 12 13, 0, 50)
@@ -52,48 +52,57 @@
     &none        &none        &none        &none        &none        &none        &none        &none        &none        &none
                                            &none        &none        &none        &none
     >;
-    */
+
 
     CMK_L {
     bindings = <
     &kp Q        &kp W        &kp F        &kp P        &kp B        &kp J        &kp L        &kp U        &kp Y        &kp APOS
     &kp A        &kp R        &kp S        &kp T        &kp G        &kp M        &kp N        &kp E        &kp I        &kp O
     &kp Z        &kp X        &kp C        &kp D        &kp V        &kp K        &kp H        &kp COMMA    &kp DOT      &kp FSLH
-                                           &mo EXT_L    &kp LSHFT    &kp SPACE    &mo SYM_L
+                                           &mo EXT_L    &sk LSHFT    &kp SPACE    &mo SYM_L
     >;
     };
+    */
 
+    QWT_L {
+    bindings = <
+    &kp Q        &kp W        &kp E        &kp R        &kp T        &kp Y        &kp U        &kp I        &kp O        &kp P
+    &kp A        &kp S        &kp D        &kp F        &kp G        &kp H        &kp J        &kp K        &kp L        &kp APOS
+    &kp Z        &kp X        &kp C        &kp V        &kp B        &kp N        &kp M        &kp COMMA    &kp DOT      &kp FSLH
+                                           &mo EXT_L    &sk LSHFT    &kp SPACE    &mo SYM_L
+    >;
+    };
 
     EXT_L {
     bindings = <
     &reset       &bt BT_CLR   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &kp HOME     &kp PG_DN    &kp PG_UP    &kp END      &reset
     &sk LCMD     &sk LALT     &sk LSHFT    &sk LCTL     &key_repeat  &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &kp BSPC
-    &kp ESC      &none        &none        &kp TAB      &none        &none        &kp RET      &none        &none        &kp DEL
-                                           &none        &none        &kp RET      &mo FUN_L
+    &kp ESC      &none        &none        &kp TAB      &none        &kp ESC      &kp RET      &none        &none        &kp DEL
+                                           &none        &none        &kp RET      &mo NUM_L
     >;
     };
 
     SYM_L {
     bindings = <
-    &kp EXCL     &kp AT       &kp POUND    &kp DLLR     &kp PRCNT    &kp CARET    &kp AMPS     &kp STAR     &none        &kp DQT
-    &kp COLON    &kp LPAR     &kp EQUAL    &kp RPAR     &kp BSLH     &kp PIPE     &kp LBRC     &kp UNDER    &kp RBRC     &kp SEMI
-    &none        &kp LT       &kp PLUS     &kp GT       &kp TILDE    &kp GRAVE    &kp LBKT     &kp MINUS    &kp RBKT     &kp QMARK
-                                           &mo NUM_L    &kp BSPC     &none        &none
+    &kp EXCL     &kp AT       &kp POUND    &kp DLLR     &kp PRCNT    &kp CARET    &kp AMPS     &kp STAR     &kp APOS     &kp DQT
+    &kp COLON    &kp LPAR     &kp EQUAL    &kp RPAR     &kp PIPE     &kp BSLH     &kp LBKT     &kp UNDER    &kp RBKT     &kp SEMI
+    &kp FSLH     &kp LT       &kp PLUS     &kp GT       &kp TILDE    &kp GRAVE    &kp LBRC     &kp MINUS    &kp RBRC     &kp QMARK
+                                           &mo FUN_L    &kp ESC      &none        &none
     >;
     };
 
     NUM_L {
     bindings = <
-    &kp FSLH     &kp N4       &kp N5       &kp N6       &kp PLUS     &kp POUND    &kp A        &kp B        &kp C        &none
-    &kp N0       &kp N1       &kp N2       &kp N3       &kp MINUS    &kp DOT      &sk LCTL     &sk LSHFT    &sk LALT     &sk LCMD
-    &kp STAR     &kp N7       &kp N8       &kp N9       &kp EQUAL    &kp COMMA    &kp D        &kp E        &kp F        &none
-                                           &none        &none        &none        &none
+    &kp FSLH     &kp N4       &kp N5       &kp N6       &kp PLUS     &none        &none        &none        &none        &none
+    &kp COLON    &kp N1       &kp N2       &kp N3       &kp EQUAL    &kp DOT      &sk LCTL     &sk LSHFT    &sk LALT     &sk LCMD
+    &kp STAR     &kp N7       &kp N8       &kp N9       &kp MINUS    &none        &none        &kp COMMA    &kp DOT      &none
+                                           &kp DOT      &kp N0       &none        &none
     >;
     };
 
     FUN_L {
     bindings = <
-    &none        &kp F4       &kp F5       &kp F6       &kp F10      &none        &none        &none        &none        &none
+    &reset       &kp F4       &kp F5       &kp F6       &kp F10      &none        &none        &none        &none        &reset
     &none        &kp F1       &kp F2       &kp F3       &kp F11      &none        &sk LCTL     &sk LSHFT    &sk LALT     &sk LCMD
     &none        &kp F7       &kp F8       &kp F9       &kp F12      &none        &none        &none        &none        &none
                                            &none        &none        &none        &none
